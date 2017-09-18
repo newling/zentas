@@ -13,3 +13,4 @@ build/*
 python/batch*
 python/other*
 *goudurix12paths*
+*data/output.txt
