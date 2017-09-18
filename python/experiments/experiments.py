@@ -31,8 +31,8 @@ import time
 
 import rna
 reload(rna)
-K = 100
-X = rna.get_rna()[10000:20000, :]
+K = 300
+X = rna.get_rna()[0:20000, :]
 
 
 indices_init = np.arange(K, dtype = np.uint64)
@@ -44,7 +44,7 @@ C_init = X[indices_init]
 
 from sklearn.cluster import KMeans
 t0 = time.time()
-sklc = KMeans(n_clusters = K, init = C_init, max_iter = 100000000, tol = 1e-9, verbose = 0, n_init = 1, algorithm = "full")#, algorithm = "elkan") #k-means++
+sklc = KMeans(n_clusters = K, init = C_init, max_iter = 100000000, tol = 1e-9, verbose = 0, n_init = 1)#, algorithm = "full")#, algorithm = "elkan") #k-means++
 sklc.fit(X)
 t1 = time.time()
 
